@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{EAA40217-59B7-4F08-BA0A-A3501E67FF08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{EC531F55-7B46-452A-B094-EBEB124DFAA7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Http", "Http\Http.vcxitems", "{FE06FA8B-6BA2-4965-8DC9-06E7C101C52A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gui", "Gui\Gui.vcxitems", "{9A51EDA9-C6C8-4ACB-A6CB-5E738FDF715B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "App", "App\App.vcxproj", "{956D4F8C-0742-487E-BB64-F45EAC29BC04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Debug|x64.ActiveCfg = Debug|x64
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Debug|x64.Build.0 = Debug|x64
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Debug|x86.ActiveCfg = Debug|Win32
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Debug|x86.Build.0 = Debug|Win32
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Release|x64.ActiveCfg = Release|x64
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Release|x64.Build.0 = Release|x64
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Release|x86.ActiveCfg = Release|Win32
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FE06FA8B-6BA2-4965-8DC9-06E7C101C52A} = {EAA40217-59B7-4F08-BA0A-A3501E67FF08}
+		{9A51EDA9-C6C8-4ACB-A6CB-5E738FDF715B} = {EAA40217-59B7-4F08-BA0A-A3501E67FF08}
+		{956D4F8C-0742-487E-BB64-F45EAC29BC04} = {EC531F55-7B46-452A-B094-EBEB124DFAA7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F53B92C-C8F4-4BB0-9436-4513131D0FAE}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Gui\Gui.vcxitems*{956d4f8c-0742-487e-bb64-f45eac29bc04}*SharedItemsImports = 4
+		Http\Http.vcxitems*{956d4f8c-0742-487e-bb64-f45eac29bc04}*SharedItemsImports = 4
+		Gui\Gui.vcxitems*{9a51eda9-c6c8-4acb-a6cb-5e738fdf715b}*SharedItemsImports = 9
+		Http\Http.vcxitems*{fe06fa8b-6ba2-4965-8dc9-06e7c101c52a}*SharedItemsImports = 9
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{9a51eda9-c6c8-4acb-a6cb-5e738fdf715b}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui_demo.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui_draw.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui_tables.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui_widgets.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\backends\imgui_impl_win32.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imconfig.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imgui_internal.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imstb_rectpack.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imstb_textedit.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\shared\ImGuiSrc\imstb_truetype.h" />
+  </ItemGroup>
+</Project>
