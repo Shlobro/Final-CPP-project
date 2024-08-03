@@ -1,5 +1,4 @@
-// ConnectedApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// ConnectedApp.cpp : This file contains the 'main' function. Program execution begins and ends here.
 
 #include <iostream>
 #include <thread>
@@ -7,18 +6,28 @@
 #include "DrawThread.h"
 #include "DownloadThread.h"
 
+int main() {
+    // Create shared object for data communication between threads
+    Common common;
 
+    // Create and start the drawing thread
+    DrawThread draw;
+    auto draw_th = std::jthread([&] { draw(common); });
 
-int main()
-{
-    Common common; // make an object that we defined
-    DrawThread draw;    // make a thread instance that we defined
-    auto draw_th = std::jthread([&] {draw(common); });  // create a new thread
-    DownloadThread down;       // instance of a download thread object type
-    auto down_th = std::jthread([&] {down(common); });  // activate the thread
-    down.SetUrl("http://....");     // 
-    std::cout << "running...\n";
-    down_th.join();
+    // Create and start the download thread for historical data
+    DownloadThread down;
+    auto down_th = std::jthread([&] { down(common); });
+
+    // Create and start the download thread for live alerts
+    auto ldown_th = std::jthread([&] { down.liveAlerts(common); });
+
+    // Inform the user that the program is running
+    std::cout << "Running...\n";
+
+    // Wait for the threads to finish execution
     draw_th.join();
-}
+    down_th.join();
+    ldown_th.join();
 
+    return 0;
+}
