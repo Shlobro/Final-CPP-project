@@ -216,22 +216,9 @@ int GuiMain(drawcallback drawfunction, void* obj_ptr)
 	IM_ASSERT(subtitleFont != nullptr);
 	ImFont* clockFont = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\calibrib.ttf", 36.0f, nullptr, &ranges[0]);
 	IM_ASSERT(clockFont != nullptr);
-	ImFont* defaultTextFont = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\calibrib.ttf", 25.0f, nullptr, &ranges[0]);
-	IM_ASSERT(defaultTextFont != nullptr);
-	ImFont* searchBarFont = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\calibrib.ttf", 17.0f, nullptr, &ranges[0]);
-	IM_ASSERT(searchBarFont != nullptr);
-
-	// Fade-in variables
-	float title_alpha = 0.0f;
-	float subtitle_alpha = 0.0f;
-	const float alpha_increment = 0.009f; // Adjust the speed of the fade-in effect
 
 	// Our state
-	bool show_demo_window = true;
-	bool show_another_window = false;
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-	bool exit_requested = false;
-	bool show_alerts_history = false; // Add this flag
 
 	// Main loop
 	bool done = false;
@@ -273,23 +260,17 @@ int GuiMain(drawcallback drawfunction, void* obj_ptr)
 
 		// this is the exit button condition
 		if (((Common*)obj_ptr)->exit_requested) {
-			exit_requested = true;
+			done = true;
 		}
 
 
 		// Render the background image
 		if (g_backgroundTexture)
 		{
-			ImGui::GetBackgroundDrawList()->AddImage(
-				g_backgroundTexture,
-				ImVec2(0, 0),
-				ImVec2((float)g_backgroundWidth, (float)g_backgroundHeight)
-			);
+			ImGui::GetBackgroundDrawList()->AddImage(g_backgroundTexture,ImVec2(0, 0),ImVec2((float)g_backgroundWidth, (float)g_backgroundHeight));
 		}
 
 		// Call the user-defined draw function
-
-	
 		drawfunction(obj_ptr);
 
 
@@ -309,10 +290,6 @@ int GuiMain(drawcallback drawfunction, void* obj_ptr)
 		// Present
 		HRESULT hr = g_pSwapChain->Present(1, 0); // Present with vsync
 		g_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
-
-		// Check if exit was requested
-		if (exit_requested)
-			done = true;
 	}
 
 	// Cleanup

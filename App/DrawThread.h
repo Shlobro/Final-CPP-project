@@ -9,7 +9,7 @@
 #include <windows.h>
 
 // ImGui includes
-#include "../../shared/ImGuiSrc/imgui.h"
+#include "imgui.h"
 
 // Project-specific includes
 #include "Common.h"
@@ -23,7 +23,7 @@ class DrawThread
 {
 public:
     /**
-     * @brief Functor for executing drawing operations.
+     * @brief Function for executing drawing operations.
      * @param common A reference to the Common class instance containing shared resources.
      */
     void operator()(Common& common);
@@ -35,7 +35,7 @@ public:
  * @brief Displays instruction window.
  * @param p_open Pointer to a boolean that controls the window's open state.
  */
-void show_instructions(bool* p_open);
+void show_instructions();
 
 /**
  * @brief Displays history information.
@@ -44,11 +44,11 @@ void show_instructions(bool* p_open);
 void showHistory(void* common_ptr);
 
 /**
- * @brief Displays menu buttons and handles their actions.
+ * @brief Displays menu buttons and handles their actions ("exit", "show history", "instructions").
  * @param common_ptr Pointer to a Common class instance containing shared resources.
  * @param show_history Reference to a boolean that indicates if history should be shown.
  */
-void menueButtons(void* common_ptr, bool& show_history);
+void menuButtons(void* common_ptr, bool& show_history);
 
 /**
  * @brief Displays the alert count.
@@ -75,3 +75,9 @@ void title(ImFont* titleFont, ImFont* subtitleFont);
  * @param common_ptr Pointer to a Common class instance containing shared resources.
  */
 void LiveAlertsWindow(void* common_ptr);
+
+/**
+ * @brief The function we pass to GuiMain.
+ * @param common_ptr Pointer to a Common class instance containing shared resources.
+ */
+void DrawAppWindow(void* common_ptr);
